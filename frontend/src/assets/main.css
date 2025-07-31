@@ -8,4 +8,6 @@ body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+
+  --blue: rgb(25, 132, 255);
 }
