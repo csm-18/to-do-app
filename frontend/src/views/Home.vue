@@ -5,6 +5,12 @@ import { ref } from 'vue'
 
 const task = ref('')
 const tasks = ref([])
+
+function add_task() {
+  let temp = task.value.trim()
+  tasks.value.push(temp)
+  task.value = ''
+}
 </script>
 
 <template>
@@ -12,7 +18,7 @@ const tasks = ref([])
     <h1>To-Do App</h1>
     <div class="add-task">
       <input v-model="task" type="text" placeholder="Add a new task" />
-      <button @click="tasks.push(task)">Add Task</button>
+      <button @click="add_task">Add Task</button>
     </div>
     <div class="tasks" v-for="(task, index) in tasks.reverse()" :key="index">
       <Task :task_msg="task" />
