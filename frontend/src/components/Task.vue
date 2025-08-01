@@ -1,16 +1,19 @@
 <script setup>
 import { ref } from 'vue'
 
-const props = defineProps(['task_msg'])
+const props = defineProps(['task_msg', 'id'])
+const emit = defineEmits(['remove'])
 
-const show = ref(true)
+function remove() {
+  emit('remove', props.id)
+}
 </script>
 
 <template>
-  <div v-if="show" class="task">
+  <div class="task" :id="id">
     <input class="tick" type="checkbox" name="" id="" />
     <p>{{ task_msg }}</p>
-    <button class="remove-btn" @click="show = false">Remove</button>
+    <button class="remove-btn" @click="remove">Remove</button>
   </div>
 </template>
 

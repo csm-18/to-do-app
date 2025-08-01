@@ -13,7 +13,12 @@ function add_task() {
   }
 
   tasks.value.unshift(temp)
+
   task.value = ''
+}
+
+function remove_task(id) {
+  tasks.value.splice(id, 1)
 }
 </script>
 
@@ -25,7 +30,7 @@ function add_task() {
       <button @click="add_task">Add Task</button>
     </div>
     <div class="tasks" v-for="(task_msg, index) in tasks" :key="index">
-      <Task :task_msg="task_msg" />
+      <Task @remove="remove_task" :task_msg="task_msg" :id="index" />
     </div>
   </div>
 </template>
