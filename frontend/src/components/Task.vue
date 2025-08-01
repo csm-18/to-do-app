@@ -16,6 +16,8 @@ const show = ref(true)
 
 <style scoped lang="scss">
 .task {
+  font-weight: 500;
+
   margin: 1rem;
   width: 100%;
   border-radius: 10px;

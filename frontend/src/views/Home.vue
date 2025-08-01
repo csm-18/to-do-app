@@ -8,7 +8,11 @@ const tasks = ref([])
 
 function add_task() {
   let temp = task.value.trim()
-  tasks.value.push(temp)
+  if (temp === '') {
+    return
+  }
+
+  tasks.value.unshift(temp)
   task.value = ''
 }
 </script>
@@ -20,8 +24,8 @@ function add_task() {
       <input v-model="task" type="text" placeholder="Add a new task" />
       <button @click="add_task">Add Task</button>
     </div>
-    <div class="tasks" v-for="(task, index) in tasks.reverse()" :key="index">
-      <Task :task_msg="task" />
+    <div class="tasks" v-for="(task_msg, index) in tasks" :key="index">
+      <Task :task_msg="task_msg" />
     </div>
   </div>
 </template>
@@ -34,9 +38,19 @@ div.container {
   flex-direction: column;
   align-items: center;
 
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+
   h1 {
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+
     font-size: 4rem;
-    font-family: sans;
+
     color: var(--blue);
   }
 
@@ -56,6 +70,9 @@ div.container {
       width: 20%;
       font-size: 1.5rem;
       padding: 0.5rem;
+
+      background-color: var(--blue);
+      color: white;
     }
   }
 
