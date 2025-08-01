@@ -42,9 +42,12 @@ const show = ref(true)
     word-break: break-word;
   }
   .remove-btn {
+    font-weight: 900;
     margin: 0;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    background-color: rgb(235, 16, 16);
+    color: white;
   }
 }
 </style>
