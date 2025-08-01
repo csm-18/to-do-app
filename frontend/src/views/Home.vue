@@ -83,4 +83,32 @@ div.container {
     align-items: center;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  div.container {
+    h1 {
+      font-size: 3rem;
+    }
+
+    .add-task {
+      margin-top: 1rem;
+      padding: 0.2rem;
+      width: 92%;
+      input {
+        font-size: 1.4rem;
+        padding: 0.5rem;
+      }
+      button {
+        width: 22%;
+        font-size: 1.4rem;
+        padding: 0.2rem;
+      }
+    }
+
+    .tasks {
+      width: 90%;
+      align-items: center;
+    }
+  }
+}
 </style>
